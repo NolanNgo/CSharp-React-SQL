@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "08680a2f-c4e7-4631-97c5-7741046f2d29",
+		"name": "CNPM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/Products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDetail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/Products/PR01",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Products",
+						"PR01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostProducts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI5NmUwYTliYS01NjUyLTQ4YTMtYWYxZS1iZDE1ZjJlMGFmYjAiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xNi8yMDIxIDQ6NTQ6MzEgUE0iLCJleHAiOjE2MzcxNjgwNzEsImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.w5wuDnura9OFj3eAGpQetJMRV3bJWBgFOAQC_L4wFsA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ProductID\":\"PR06\",\r\n    \"NameProduct\":\"Chuột không dây Logitech\",\r\n    \"Prices\":1500000,\r\n    \"Storage\":10,\r\n    \"Image\":\"\",\r\n    \"ProductTypeID\":3\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44359/api/Products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProducts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiJmNjMwOWYyNy05MDIwLTRjMTUtODA5Yy1kNDAwNjNlYjMwMGMiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xNy8yMDIxIDI6MjU6NTQgUE0iLCJleHAiOjE2MzcyNDU1NTQsImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.gWT5k6RqcytVVZuyHj758S53-eaY0viCkbDChkY1_4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/Products/PR05",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Products",
+						"PR05"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditProducts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiJmNjMwOWYyNy05MDIwLTRjMTUtODA5Yy1kNDAwNjNlYjMwMGMiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xNy8yMDIxIDI6MjU6NTQgUE0iLCJleHAiOjE2MzcyNDU1NTQsImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.gWT5k6RqcytVVZuyHj758S53-eaY0viCkbDChkY1_4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"NameProduct\":\"Chuột không dây Logitech Edit\",\r\n    \"Prices\":1500000,\r\n    \"Storage\":10,\r\n    \"Image\":\"\",\r\n    \"ProductTypeID\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44359/api/Products/PR010",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Products",
+						"PR010"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"hieumh321\",\r\n    \"password\":\"123456\",\r\n    \"name\":\"Minh Hieu\",\r\n    \"email\":\"hieumh123@gmail.com\",\r\n    \"cost\": 0,\r\n    \"address\":\"HCM\",\r\n    \"phone\": \"0922113564\",\r\n    \"role\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44359/api/Token/Register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Token",
+						"Register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"admin\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44359/api/Token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiJmNjMwOWYyNy05MDIwLTRjMTUtODA5Yy1kNDAwNjNlYjMwMGMiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xNy8yMDIxIDI6MjU6NTQgUE0iLCJleHAiOjE2MzcyNDU1NTQsImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.gWT5k6RqcytVVZuyHj758S53-eaY0viCkbDChkY1_4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ngo Minh Hieu\",\r\n    \"address\": \"LA\",\r\n    \"phone\": \"0961202760\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44359/api/Account/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Account",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePassword",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiIyZjZlZGE3Mi1hMTk0LTRmYWQtODZlMS00NmNjNzY3YjIzMzQiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xNy8yMDIxIDU6NDk6NDYgUE0iLCJleHAiOjE2MzcyNTc3ODYsImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.aVLvV1XqVkMjUUgacL_D4ZkJu7jjsyjphd0xlgJvxgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"oldPassword\":\"admin123\",\r\n    \"newPassword\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44359/api/Account/changePass",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Account",
+						"changePass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TestAuthorzie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI0ZjAxMDJkMi03OTExLTQ5ODUtYTc3Mi1lYTAxMjI5NDNiNGYiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xNy8yMDIxIDM6MzE6MjggUE0iLCJleHAiOjE2MzcyNDk0ODgsImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.bNlyOgQCY1lojOEKw3vECeRXUCbGqDDmYvnr0TKQo2k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/Token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiIzZjZkMDcwZC0xNTlhLTQ3NWUtYmMxMi04ZGU5ZmI3M2I5YjIiLCJuYW1laWQiOiIxMTEwNyIsIm5hbWUiOiJhZG1pbiIsImlhdCI6IjEyLzYvMjAyMSA1OjI5OjE4IFBNIiwiZXhwIjoxNjM4ODk4MTU4LCJpc3MiOiJJbnZlbnRvcnlBdXRoZW50aWNhdGlvblNlcnZlciIsImF1ZCI6IkludmVudG9yeVNlcnZpY2VQb3N0bWFuQ2xpZW50In0.nRXuoiCFrYxeQQJXxg5w3zgx6hivOiQRSm73X39EEhI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/Order/orderID/HD712202103020",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Order",
+						"orderID",
+						"HD712202103020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiJjMGE0MGZlOC1hNDY1LTQwY2MtYWI1NC1kY2M3MmM5ZmZmMTIiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xNy8yMDIxIDQ6NTE6MDkgUE0iLCJleHAiOjE2MzcyNTQyNjksImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.dJ8M7Yn8cvtsOnMqg9uKomEVXs2eK1Iujb2c11-cbF4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/Order",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI3YzZmMWFkMy0xMDM2LTQzY2ItOTY3Mi1iMzVkMDYwMjZkZTciLCJuYW1laWQiOiIxMTEwNyIsIm5hbWUiOiJhZG1pbiIsImlhdCI6IjEyLzYvMjAyMSA5OjEyOjU3IEFNIiwiZXhwIjoxNjM4ODY4Mzc3LCJpc3MiOiJJbnZlbnRvcnlBdXRoZW50aWNhdGlvblNlcnZlciIsImF1ZCI6IkludmVudG9yeVNlcnZpY2VQb3N0bWFuQ2xpZW50In0.xRH3YrVF0RT0_yZ_9oL443B3DH-s5F1tsAI3GARt9E0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderId\":\"HD001\",\r\n    \"ProductID\":\"PR03\",\r\n    \"countProduct\":10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44359/api/Order",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI5YzQ0N2MzNi0xZTljLTRiYTgtOTQ2OC1hNTAzNTVlODMxZDgiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xOC8yMDIxIDg6NDI6NDEgQU0iLCJleHAiOjE2MzczMTEzNjEsImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.MUsC53uKA6vLV_qwoupU4DVWko5OU1AaVOUSP2DGDt0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/Order/HD001/product/PR03",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Order",
+						"HD001",
+						"product",
+						"PR03"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteOrder_Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnZlbnRvcnlTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiIxNzBmMTYwMy02YWVkLTRhZmYtYTZkNi0yMzlmODhhMWZlMGEiLCJuYW1laWQiOiIxMDAwMCIsIm5hbWUiOiJhZG1pbjEiLCJpYXQiOiIxMS8xOC8yMDIxIDg6Mzc6MTQgQU0iLCJleHAiOjE2MzczMTEwMzQsImlzcyI6IkludmVudG9yeUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSW52ZW50b3J5U2VydmljZVBvc3RtYW5DbGllbnQifQ.tLBucfgn7x2HRAQIMpaY7uXioM5hrW3e25sJSBUWEY0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44359/api/Order/HD005",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44359",
+					"path": [
+						"api",
+						"Order",
+						"HD005"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

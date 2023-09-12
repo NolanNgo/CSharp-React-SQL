@@ -1,0 +1,931 @@
+{
+	"info": {
+		"_postman_id": "acdc9e41-4981-4fb6-a091-7e872b90f3e9",
+		"name": "INSIDE API APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "File Manager",
+			"item": [
+				{
+					"name": "Lấy danh sách bình luận của tin tức",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6ImI3OTAxNWUwLTAwYjQtMTFlZC05ZDk3LTExOTBhODVlMzM2MiIsInVzZXJfaWQiOiJDNUZCMDZDMC1BQjdGLTQ1RTMtQjdGMC03Qzg1RkYwRTRENTMiLCJ1c2VyX25hbWUiOiIxMDAxMyIsImZ1bGxfbmFtZSI6IkLDuWkgVGhhbmggVGhv4bqhaSIsImlzQWRtaW5pc3RyYXRvciI6MCwidXNlcl9jb21wYW5pZXMiOltdLCJpYXQiOjE2NTc1MDExNjksImV4cCI6MTY1NzUwNDc2OX0.mHhMJXjmBLdWwLi9Jz9FjjyloqA3kRSr4M3Scl2syFM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/news-comment?itemsPerPage=10&page=1&news_id=100014",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"news-comment"
+							],
+							"query": [
+								{
+									"key": "itemsPerPage",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "news_id",
+									"value": "100014"
+								}
+							]
+						},
+						"description": "- Mô tả :\n  + Được dùng để lấy danh sách bình luận của bài viết ở mục tin tức\n  + Dữ liệu có dạng như sau :\n\n```{\n        \"reply_comment_id\": null,\n        \"comment_id\": \"30026\",\n        \"comment_content\": \"Này là bình luận\",\n        \"author\": \"Administrator\",\n        \"like_count\": null,\n        \"dislike_count\": null,\n        \"avatar\": null,\n        \"username\": \"administrator\",\n        \"user_id_like\": null,\n        \"created_user\": \"administrator\",\n        \"created_date\": \"06/07/2022\",\n        \"news_comment_like_id\": null,\n        \"user_id_dis_like\": null,\n        \"news_comment_dis_like_id\": null,\n        \"child\": []\n      }```\n\n- Mô tả dữ liệu trả về :\n  +  reply_comment_id : là id của bình luận được trả lời => Nếu là null là bình luận chính\n  +  comment_id : Là id của bình luận \n  +  comment_content : Nội dung bình luận\n  +  Author : người bình luận (UserName - Tên người dùng ). Nếu tài khoản Admin thì trả về (Administrator)\n  +  like_count : Đếm số lượng người đã thích bình luận đó \n  +  dislike_count : Đếm số lượng người đã không thích bình luận đó\n  +  avatar : Ảnh đại diện của tài khoản bình luận \n  +  username : tên tài khoản đăng nhập\n  +  user_id_like : Nếu là null thì người dùng chưa like bình luận này , nếu có id và id đó bằng với id của user hiện tại thì đã like\n  +  user_id_dis_like : Nếu là null thì người dùng chưa dislike bình luận này , nếu có id và id đó bằng với id của user hiện tại thì đã dislike \n  + child : là 1 mảng chứa các bình luận trả lời cho bình luận chính đấy.\n\n- Danh sách tham số\n  + itemsPerPage : Số lượng comment lấy lên ( Mặc định là 10 ) => sẽ lấy danh sách 10 comment chính và 10 comment trả lời\n  + page : trang comment hiện tại (Mặc định là 1 )\n  + news_id : ID định danh bài viết ở mục tin tức \n  + Đính kèm Token vào request : Để xem người dùng hiện tại đã like và dislike comment nào."
+					},
+					"response": [
+						{
+							"name": "Lấy danh sách bình luận của tin tức",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/news-comment?itemsPerPage=10&page=1&news_id=100014",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"news-comment"
+									],
+									"query": [
+										{
+											"key": "itemsPerPage",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "news_id",
+											"value": "100014"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7690"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e0a-IlZcFmGpLFkyk9X89dkfZC/TrKA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Jul 2022 01:32:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"items\": [\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"30026\",\n                \"comment_content\": \"Này là bình luận\",\n                \"author\": \"Administrator\",\n                \"like_count\": null,\n                \"dislike_count\": null,\n                \"avatar\": null,\n                \"username\": \"administrator\",\n                \"user_id_like\": null,\n                \"created_user\": \"administrator\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": []\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20044\",\n                \"comment_content\": \"Alooooooooooooo\",\n                \"author\": \"Administrator\",\n                \"like_count\": null,\n                \"dislike_count\": null,\n                \"avatar\": null,\n                \"username\": \"administrator\",\n                \"user_id_like\": null,\n                \"created_user\": \"administrator\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": [\n                    {\n                        \"reply_comment_id\": \"20044\",\n                        \"comment_id\": \"30020\",\n                        \"comment_content\": \"ádcasdcasdc\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    },\n                    {\n                        \"reply_comment_id\": \"20044\",\n                        \"comment_id\": \"30019\",\n                        \"comment_content\": \"âcsdcasdc\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    },\n                    {\n                        \"reply_comment_id\": \"20044\",\n                        \"comment_id\": \"30018\",\n                        \"comment_content\": \"scasđcádc\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    },\n                    {\n                        \"reply_comment_id\": \"20044\",\n                        \"comment_id\": \"30017\",\n                        \"comment_content\": \"ấcdcasdc\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    }\n                ]\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20043\",\n                \"comment_content\": \"Test bình luận này edit\",\n                \"author\": \"Administrator\",\n                \"like_count\": 1,\n                \"dislike_count\": null,\n                \"avatar\": null,\n                \"username\": \"administrator\",\n                \"user_id_like\": null,\n                \"created_user\": \"administrator\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": [\n                    {\n                        \"reply_comment_id\": \"20043\",\n                        \"comment_id\": \"30014\",\n                        \"comment_content\": \"ádcasdcasdc\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    }\n                ]\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20040\",\n                \"comment_content\": \"Bình luận này edit\",\n                \"author\": \"Administrator\",\n                \"like_count\": null,\n                \"dislike_count\": null,\n                \"avatar\": null,\n                \"username\": \"administrator\",\n                \"user_id_like\": null,\n                \"created_user\": \"administrator\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": [\n                    {\n                        \"reply_comment_id\": \"20040\",\n                        \"comment_id\": \"30021\",\n                        \"comment_content\": \"cácdasdc\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    },\n                    {\n                        \"reply_comment_id\": \"20040\",\n                        \"comment_id\": \"30016\",\n                        \"comment_content\": \"readfasdf\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    }\n                ]\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20036\",\n                \"comment_content\": \"Test đó\",\n                \"author\": \"10013 - Bùi Thanh Thoại\",\n                \"like_count\": null,\n                \"dislike_count\": null,\n                \"avatar\": \"http://insite-test.blackwind.vn/file/4c3f6c1f-1ef5-46a4-8431-556f5a5d80ce.jpeg\",\n                \"username\": \"10013\",\n                \"user_id_like\": null,\n                \"created_user\": \"10013\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": [\n                    {\n                        \"reply_comment_id\": \"20036\",\n                        \"comment_id\": \"30028\",\n                        \"comment_content\": \"Hello\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    },\n                    {\n                        \"reply_comment_id\": \"20036\",\n                        \"comment_id\": \"30027\",\n                        \"comment_content\": \"Này là reply \",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    }\n                ]\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20035\",\n                \"comment_content\": \"Này là bình luận\",\n                \"author\": \"10013 - Bùi Thanh Thoại\",\n                \"like_count\": null,\n                \"dislike_count\": null,\n                \"avatar\": \"http://insite-test.blackwind.vn/file/4c3f6c1f-1ef5-46a4-8431-556f5a5d80ce.jpeg\",\n                \"username\": \"10013\",\n                \"user_id_like\": null,\n                \"created_user\": \"10013\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": [\n                    {\n                        \"reply_comment_id\": \"20035\",\n                        \"comment_id\": \"30029\",\n                        \"comment_content\": \"Oki\",\n                        \"author\": \"Administrator\",\n                        \"like_count\": null,\n                        \"dislike_count\": null,\n                        \"avatar\": null,\n                        \"username\": \"administrator\",\n                        \"user_id_like\": null,\n                        \"created_user\": \"administrator\",\n                        \"created_date\": \"06/07/2022\",\n                        \"news_comment_like_id\": null,\n                        \"user_id_dis_like\": null,\n                        \"news_comment_dis_like_id\": null\n                    }\n                ]\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20033\",\n                \"comment_content\": \"Này là bình luận\",\n                \"author\": \"10013 - Bùi Thanh Thoại\",\n                \"like_count\": null,\n                \"dislike_count\": null,\n                \"avatar\": \"http://insite-test.blackwind.vn/file/4c3f6c1f-1ef5-46a4-8431-556f5a5d80ce.jpeg\",\n                \"username\": \"10013\",\n                \"user_id_like\": null,\n                \"created_user\": \"10013\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": []\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20031\",\n                \"comment_content\": \"Đay là bình luận 1 edit\",\n                \"author\": \"10013 - Bùi Thanh Thoại\",\n                \"like_count\": null,\n                \"dislike_count\": null,\n                \"avatar\": \"http://insite-test.blackwind.vn/file/4c3f6c1f-1ef5-46a4-8431-556f5a5d80ce.jpeg\",\n                \"username\": \"10013\",\n                \"user_id_like\": null,\n                \"created_user\": \"10013\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": []\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20030\",\n                \"comment_content\": \"Đây là bình luận \",\n                \"author\": \"10013 - Bùi Thanh Thoại\",\n                \"like_count\": 1,\n                \"dislike_count\": null,\n                \"avatar\": \"http://insite-test.blackwind.vn/file/4c3f6c1f-1ef5-46a4-8431-556f5a5d80ce.jpeg\",\n                \"username\": \"10013\",\n                \"user_id_like\": \"10013\",\n                \"created_user\": \"10013\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": \"30007\",\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": []\n            },\n            {\n                \"reply_comment_id\": null,\n                \"comment_id\": \"20024\",\n                \"comment_content\": \"ok ban ei\\n\\n\\n\\n\\n\\n\\n\\n\\n\\na\\na\\na\\na\\na\\na\\na\\na\\na\\na\\na\\n\\na\\na\",\n                \"author\": \"Administrator\",\n                \"like_count\": null,\n                \"dislike_count\": 1,\n                \"avatar\": null,\n                \"username\": \"administrator\",\n                \"user_id_like\": null,\n                \"created_user\": \"administrator\",\n                \"created_date\": \"06/07/2022\",\n                \"news_comment_like_id\": null,\n                \"user_id_dis_like\": null,\n                \"news_comment_dis_like_id\": null,\n                \"child\": []\n            }\n        ],\n        \"totalItems\": 76,\n        \"page\": \"1\",\n        \"totalPages\": 8,\n        \"itemsPerPage\": \"10\"\n    },\n    \"message\": \"\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Lấy chi tiết bình luận với ID của bình luận",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6IjY4YjQ1ZWEwLTAwYzItMTFlZC1hNWY0LTk3ZDRmMTJjYWVhNSIsInVzZXJfaWQiOiJDNUZCMDZDMC1BQjdGLTQ1RTMtQjdGMC03Qzg1RkYwRTRENTMiLCJ1c2VyX25hbWUiOiIxMDAxMyIsImZ1bGxfbmFtZSI6IkLDuWkgVGhhbmggVGhv4bqhaSIsImlzQWRtaW5pc3RyYXRvciI6MCwidXNlcl9jb21wYW5pZXMiOltdLCJpYXQiOjE2NTc1MDcwNDksImV4cCI6MTY1NzUxMDY0OX0.ZJvbXkhr1pHpZsGEZX3aZc6ygU7jAJe_h4Gmp-Znm_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/news-comment/30003",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"news-comment",
+								"30003"
+							]
+						},
+						"description": "- Mô tả \n  + API được dùng để lấy chi tiết của bình luận \n- Tham số truyền xuống \n  + ID bình luận được truyền xuống thông qua param \n- Kết quả trả về như sau:\n\n```{\n    \"data\": [\n        {\n            \"reply_comment_id\": \"3\",\n            \"comment_id\": \"30003\",\n            \"comment_content\": \"Đây reply cuối\",\n            \"author\": \"Administrator\",\n            \"avatar\": null,\n            \"username\": \"administrator\",\n            \"created_user\": \"administrator\",\n            \"created_date\": \"06/07/2022\"\n        }\n    ],\n    \"message\": \"\",\n    \"status\": 200,\n    \"errors\": null\n}```\n\n- Dữ liệu sẽ ở mục data với các biến trả về như:\n   + reply_comment_id : là id của bình luận được trả lời => Nếu là null là bình luận chính\n   + comment_id : Là id của bình luận\n   + comment_content : Nội dung bình luận\n   + Author : người bình luận (UserName - Tên người dùng ). Nếu tài khoản Admin thì trả về (Administrator)\n   + username : tên tài khoản đăng nhập"
+					},
+					"response": [
+						{
+							"name": "Lấy chi tiết bình luận với ID của bình luận",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/news-comment/30003",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"news-comment",
+										"30003"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "277"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"115-+M7Ekpe53rcK/kqgW2THqNN3ubo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Jul 2022 02:50:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"reply_comment_id\": \"3\",\n            \"comment_id\": \"30003\",\n            \"comment_content\": \"Đây reply cuối\",\n            \"author\": \"Administrator\",\n            \"like_count\": \"0\",\n            \"avatar\": null,\n            \"username\": \"administrator\",\n            \"created_user\": \"administrator\",\n            \"created_date\": \"06/07/2022\"\n        }\n    ],\n    \"message\": \"\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Tạo bình luận và trả lời bình luận",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6IjhlZWRmZjAwLTAwYzYtMTFlZC04OGQyLWJiMmI1ZGIwYTNmNiIsInVzZXJfaWQiOiJDNUZCMDZDMC1BQjdGLTQ1RTMtQjdGMC03Qzg1RkYwRTRENTMiLCJ1c2VyX25hbWUiOiIxMDAxMyIsImZ1bGxfbmFtZSI6IkLDuWkgVGhhbmggVGhv4bqhaSIsImlzQWRtaW5pc3RyYXRvciI6MCwidXNlcl9jb21wYW5pZXMiOltdLCJpYXQiOjE2NTc1MDg4MzIsImV4cCI6MTY1NzUxMjQzMn0.jCaaLxceD3I4hBQ6Fb7D5R9z4UaQOTWTq6fags7KNcY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment_id\" : \"\",\r\n    \"comment_content\" : \"Này là bình luận từ postman\",\r\n    \"reply_comment_id\" : null,\r\n    \"news_id\": \"10013\",\r\n    \"is_active\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/news-comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"news-comment"
+							]
+						},
+						"description": "- Mô tả :\n  + Được dùng để tạo bình luận , trả lời bình luận\n\n- Tham số đầu vào :\n  +  comment_id : Mặc định sẽ null => ID bình luận tự tăng\n  +  comment_content : Nội dung bình luận \n  +  reply_comment_id : \n     +  Tạo mới bình luận thì reply_comment_id là null\n     + Trả lời bình luận thì reply_comment_id  là id của bình luận được trả lời\n  +  is_active : mặc định là 1 \n  +  Đính kèm accessToken vào request : Để lưu lại người tạo ra bình luận đó\n\n- Mô tả dữ liệu trả về:\n\n```{\n  \"data\": {\n    \"newsCommentId\": 40010\n  },\n  \"message\": \"Thêm mới thành công.\",\n  \"status\": 200,\n  \"errors\": null\n}```\n\n\n\n+  Dữ liệu nằm trong data: trả về ID của bình luận vừa được bình luận"
+					},
+					"response": [
+						{
+							"name": "Tạo bình luận và trả lời bình luận",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment_id\" : \"\",\r\n    \"comment_content\" : \"Này là bình luận từ postman\",\r\n    \"reply_comment_id\" : null,\r\n    \"news_id\": \"10013\",\r\n    \"is_active\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/news-comment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"news-comment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"61-Ug77S2r5QWHpLG7ulJJZF6ACYK0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Jul 2022 03:24:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"newsCommentId\": 40012\n    },\n    \"message\": \"Thêm mới thành công.\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Chỉnh sửa bình luận và bình luận trả lời",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6IjkzMTBiMDMwLTAwZDItMTFlZC1iMzNiLTI1MmZiMzY0MzNlYyIsInVzZXJfaWQiOiJDNUZCMDZDMC1BQjdGLTQ1RTMtQjdGMC03Qzg1RkYwRTRENTMiLCJ1c2VyX25hbWUiOiIxMDAxMyIsImZ1bGxfbmFtZSI6IkLDuWkgVGhhbmggVGhv4bqhaSIsImlzQWRtaW5pc3RyYXRvciI6MCwidXNlcl9jb21wYW5pZXMiOltdLCJpYXQiOjE2NTc1MTM5OTIsImV4cCI6MTY1NzUxNzU5Mn0.1xTU_6ZGeqnFcRaVWedw2LtpShJxUV5Ss7paQPo7rtM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment_content\" : \"Này là bình luận từ postman update\",\r\n    \"reply_comment_id\" : null,\r\n    \"news_id\": \"10013\",\r\n    \"is_active\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/news-comment/30029",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"news-comment",
+								"30029"
+							]
+						},
+						"description": "- Mô tả :\n  + Được dùng để chỉnh sửa bình luận , chỉnh sửa bình luận trả lời\n\n- Tham số đầu vào :\n  +  comment_id : được truyền qua params \n  +  comment_content : Nội dung bình luận được chỉnh sửa\n  +  reply_comment_id : lấy thông tin của bình luận được yêu cầu chỉnh sửa\n  +  is_active : mặc định là 1 \n  +  Đính kèm accessToken vào request : Để lưu lại người chỉnh sửa bình luận đó\n\n- Mô tả dữ liệu trả về:\n  + Nếu người chỉnh sửa là người tạo ra bình luận đó\n\n\n```{\n  \"data\": {\n    \"newsCommentId\": \"40012\"\n  },\n  \"message\": \"Cập nhật thành công.\",\n  \"status\": 200,\n  \"errors\": null\n}```\n\n  + Nếu người gửi yêu cầu chỉnh sửa không phải người tạo ra bình luận\n\n```{\n    \"status\": 400,\n    \"message\": \"Bạn không được phép chỉnh sửa\",\n    \"errors\": null\n}```\n\n\n+  Dữ liệu nằm trong data: trả về ID của bình luận vừa được chỉnh sửa"
+					},
+					"response": [
+						{
+							"name": "Chỉnh sửa bình luận và bình luận trả lời",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment_content\" : \"Này là bình luận từ postman update\",\r\n    \"reply_comment_id\" : null,\r\n    \"news_id\": \"10013\",\r\n    \"is_active\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/news-comment/40012",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"news-comment",
+										"40012"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"64-+bteK2uevu0Dy/6rlJr1YMZurTs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Jul 2022 04:07:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"newsCommentId\": \"40012\"\n    },\n    \"message\": \"Cập nhật thành công.\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						},
+						{
+							"name": "Chỉnh sửa bình luận và bình luận trả lời",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment_content\" : \"Này là bình luận từ postman update\",\r\n    \"reply_comment_id\" : null,\r\n    \"news_id\": \"10013\",\r\n    \"is_active\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/news-comment/30029",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"news-comment",
+										"30029"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-gjdrtdJb94eSjDvAoMRLr4TPLzA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Jul 2022 04:28:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Bạn không được phép chỉnh sửa\",\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Xóa bình luận",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6IjkzMTBiMDMwLTAwZDItMTFlZC1iMzNiLTI1MmZiMzY0MzNlYyIsInVzZXJfaWQiOiJDNUZCMDZDMC1BQjdGLTQ1RTMtQjdGMC03Qzg1RkYwRTRENTMiLCJ1c2VyX25hbWUiOiIxMDAxMyIsImZ1bGxfbmFtZSI6IkLDuWkgVGhhbmggVGhv4bqhaSIsImlzQWRtaW5pc3RyYXRvciI6MCwidXNlcl9jb21wYW5pZXMiOltdLCJpYXQiOjE2NTc1MTM5OTIsImV4cCI6MTY1NzUxNzU5Mn0.1xTU_6ZGeqnFcRaVWedw2LtpShJxUV5Ss7paQPo7rtM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/news-comment/30029",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"news-comment",
+								"30029"
+							]
+						},
+						"description": "- Mô tả :\n  + Được dùng để xóa bình luận \n- Tham số đầu vào:\n  +  comment_id : được truyền qua params\n  +  Đính kèm accessToken vào request : để kiểm tra xem người đó có phải là người tạo ra bình luận nếu có thì lưu lại người xóa bình luận.\n\n- Mô tả kết quả trả về:\n  + Nếu người gửi yêu cầu xóa là người tạo ra bình luận đó\n\n```{\n    \"data\": null,\n    \"message\": \"Xóa thành công.\",\n    \"status\": 200,\n    \"errors\": null\n}```\n\n   + Nếu người gửi yêu cầu xóa không phải là người tạo ra bình luân đó\n\n```{\n    \"status\": 400,\n    \"message\": \"Bạn không được phép xóa bình luận này\",\n    \"errors\": null\n}```"
+					},
+					"response": [
+						{
+							"name": "Xóa bình luận",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/news-comment/40011",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"news-comment",
+										"40011"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-nZfaVY8++ZYQzM0ysQDj1J21dWI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Jul 2022 04:41:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Xóa thành công.\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						},
+						{
+							"name": "Xóa bình luận",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/news-comment/30029",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"news-comment",
+										"30029"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5b-rz6A+mu1qTTyMEmv4j4Wx0rU3Ng\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Jul 2022 04:44:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Bạn không được phép xóa bình luận này\",\n    \"errors\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Yêu thích hoặc không thích bình luận (like or dislike)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6Ijc4M2YyMGUwLTAwZTQtMTFlZC1iNDI0LTYzZjNkNGFmNWE5YSIsInVzZXJfaWQiOiJDNUZCMDZDMC1BQjdGLTQ1RTMtQjdGMC03Qzg1RkYwRTRENTMiLCJ1c2VyX25hbWUiOiIxMDAxMyIsImZ1bGxfbmFtZSI6IkLDuWkgVGhhbmggVGhv4bqhaSIsImlzQWRtaW5pc3RyYXRvciI6MCwidXNlcl9jb21wYW5pZXMiOltdLCJpYXQiOjE2NTc1MjE2NzgsImV4cCI6MTY1NzUyNTI3OH0.TztumviD2A6yCPiFrcZd2_TS0MrI_hEe-yJYPm4ay6Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"news_comment_like_id\" : \"\",\r\n    \"comment_id\" : \"40012\",\r\n    \"is_active\" : 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/news-comment/like-dislike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"news-comment",
+								"like-dislike"
+							]
+						},
+						"description": "- Mô tả\n  + Được dùng để thích và không thích bình luận \n- Mô tả dữ liệu đầu vào \n  + comment_id : Là ID của bình luận \n  + news_comment_like_id : Là ID của lượt like hoặc dislike bình luận\n  + is_active : Là thể hiện cho việc like (1) và dislike (0)\n  + Đính kèm accessToken vào request : Để lưu lại người like hoặc dislike bình luận đó\n- Mô tả dữ liệu trả về \n  + trả về ID của lượt like bình luận vừa mới tạo hoặc là cập nhật like từ like sang dislike và ngược lại"
+					},
+					"response": [
+						{
+							"name": "Yêu thích hoặc không thích bình luận (like or dislike)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"news_comment_like_id\" : \"\",\r\n    \"comment_id\" : \"40012\",\r\n    \"is_active\" : 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/news-comment/like-dislike",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"news-comment",
+										"like-dislike"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f-kuvhY9TN1sjSYexoBokl+18zvGw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Jul 2022 06:42:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": 50005,\n    \"message\": \"Thêm mới thành công.\",\n    \"status\": 200,\n    \"errors\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

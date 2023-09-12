@@ -1,0 +1,5 @@
+SELECT ord.orderId, ord.countPro , acc.accountID, acc.userName , acc.name , acc.email, acc.cost , acc.phone, acc.address, pro.ProductID, pro.NameProduct, pro.Prices , pro.storage, pro. storage,pro.Image,pro.ProductTypeID
+FROM Orders ord
+INNER JOIN Account acc ON ord.accountID=acc.accountID
+INNER JOIN Products pro ON ord.ProductID =pro.ProductID
+where ord.orderId = @orderID
